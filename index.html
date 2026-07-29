@@ -3,35 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYV | توريدات مناديل ومنظفات بالجملة - 6 أكتوبر والشيخ زايد</title>
-<meta name="description" content="DYV لتوريد المناديل الورقية والمنظفات والمطهرات (فريدة) للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد. اطلب الآن على واتساب.">
+<title>DYV | توريدات مناديل ومنظفات بالجملة</title>
+<meta name="description" content="DYV — توريد المناديل الورقية والمنظفات والمطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF7F0;
-    --paper-2:#F1EBDD;
-    --ink:#20293A;
-    --kraft:#B98A52;
+    --paper:#FBF8F1;
+    --paper-2:#F3EBDA;
+    --ink:#161F33;
+    --ink-soft:#3A455E;
+    --kraft:#B8874A;
     --kraft-dark:#8C6636;
-    --stamp:#C1443B;
+    --gold:#C9A227;
+    --stamp:#AE3327;
     --whatsapp:#25D366;
     --whatsapp-dark:#1DA851;
-    --line:#DED2B8;
+    --line:#E6DAC0;
     --muted:#6B6156;
+    --font-display:'Cairo', sans-serif;
+    --font-body:'Tajawal', sans-serif;
+  }
+  html[lang="en"]{
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
   }
   html{scroll-behavior:smooth;}
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Tajawal',sans-serif;
+    font-family:var(--font-body);
+    position:relative;
   }
-  .font-display{font-family:'Cairo',sans-serif;}
+  .font-display{font-family:var(--font-display);}
   .font-mono{font-family:'IBM Plex Mono',monospace; direction:ltr; unicode-bidi:plaintext;}
 
+  /* paper grain overlay */
+  #grain{
+    position:fixed; inset:0; pointer-events:none; z-index:60;
+    opacity:.035; mix-blend-mode:multiply;
+  }
+
   .tape-strip{
-    height:8px;
+    height:7px;
     background-image:repeating-linear-gradient(-45deg, var(--kraft) 0 14px, var(--kraft-dark) 14px 28px);
   }
 
@@ -40,18 +55,20 @@
     content:"";
     position:absolute; top:-1px; left:0; right:0; height:2px;
     background-image: radial-gradient(circle 4px, var(--paper) 4px, transparent 4.5px);
-    background-size: 20px 8px;
-    background-position: 0 -3px;
-    background-repeat: repeat-x;
+    background-size: 20px 8px; background-position: 0 -3px; background-repeat: repeat-x;
   }
   .perf-bottom{position:relative;}
   .perf-bottom::after{
     content:"";
     position:absolute; bottom:-1px; left:0; right:0; height:2px;
     background-image: radial-gradient(circle 4px, var(--paper) 4px, transparent 4.5px);
-    background-size: 20px 8px;
-    background-position: 0 3px;
-    background-repeat: repeat-x;
+    background-size: 20px 8px; background-position: 0 3px; background-repeat: repeat-x;
+  }
+
+  .hairline{
+    height:2px; width:100%;
+    background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+    opacity:.55;
   }
 
   .stamp{
@@ -66,23 +83,29 @@
     60%{opacity:1; transform:rotate(-9deg) scale(0.94);}
     100%{opacity:1; transform:rotate(-9deg) scale(1);}
   }
-  .stamp-anim{animation:stampIn .6s cubic-bezier(.2,.8,.3,1.2) .2s both;}
+  .stamp-anim{animation:stampIn .7s cubic-bezier(.2,.8,.3,1.2) .2s both;}
 
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
-  .ticket-card{
+  .card{
     background:#fff;
     border:1px solid var(--line);
-    box-shadow: 0 1px 0 var(--line);
+    box-shadow: 0 1px 2px rgba(22,31,51,.04), 0 10px 30px -12px rgba(22,31,51,.14);
+  }
+  .card-hover{transition:transform .25s ease, box-shadow .25s ease;}
+  .card-hover:hover{transform:translateY(-4px); box-shadow:0 1px 2px rgba(22,31,51,.05), 0 18px 36px -14px rgba(22,31,51,.22);}
+
+  .glow{
+    position:absolute; border-radius:9999px; filter:blur(60px);
+    background:radial-gradient(circle, rgba(201,162,39,.35), transparent 70%);
   }
 
   ::selection{background:var(--kraft); color:#fff;}
+  input:focus, select:focus, button:focus-visible{outline:3px solid var(--kraft-dark); outline-offset:2px;}
 
-  input:focus, select:focus, button:focus-visible{
-    outline:3px solid var(--kraft-dark);
-    outline-offset:2px;
-  }
+  .lang-pill button{transition:background .2s ease, color .2s ease;}
+  .lang-pill button.active{background:var(--ink); color:#fff;}
 
   @media (prefers-reduced-motion: reduce){
     .reveal, .stamp-anim{transition:none; animation:none; opacity:1; transform:none;}
@@ -91,133 +114,152 @@
 </head>
 <body class="antialiased">
 
-<!-- Header -->
+<svg id="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
 <div class="tape-strip"></div>
+
+<!-- Header -->
 <header class="sticky top-0 z-40 bg-[var(--paper)]/95 backdrop-blur border-b border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
     <div class="flex items-center gap-2">
       <div class="w-11 h-11 rounded-lg bg-[var(--ink)] text-white flex items-center justify-center font-display font-black text-lg">DYV</div>
       <div class="hidden sm:block leading-tight">
-        <p class="font-display font-extrabold text-sm">DYV للتوريدات</p>
-        <p class="text-xs text-[var(--muted)]">مناديل · منظفات · تعبئة وتغليف</p>
+        <p class="font-display font-extrabold text-sm i18n" data-ar="DYV للتوريدات" data-en="DYV Supplies">DYV للتوريدات</p>
+        <p class="text-xs text-[var(--muted)] i18n" data-ar="مناديل · منظفات · تعبئة وتغليف" data-en="Tissue · Cleaning · Packaging">مناديل · منظفات · تعبئة وتغليف</p>
       </div>
     </div>
 
-    <div class="flex items-center gap-2 sm:gap-4">
-      <a href="tel:+201037689999" class="hidden sm:flex items-center gap-2 font-mono text-sm text-[var(--ink)] px-3 py-2 rounded-lg border border-[var(--line)] hover:bg-[var(--paper-2)] transition">
-        <span>📞</span>
-        <span dir="ltr">010 3768 9999</span>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="lang-pill hidden sm:flex items-center border border-[var(--line)] rounded-full p-0.5 text-xs font-bold font-mono">
+        <button data-lang="ar" class="px-3 py-1.5 rounded-full active">AR</button>
+        <button data-lang="en" class="px-3 py-1.5 rounded-full">EN</button>
+      </div>
+      <a href="tel:+201037689999" class="hidden md:flex items-center gap-2 font-mono text-sm text-[var(--ink)] px-3 py-2 rounded-lg border border-[var(--line)] hover:bg-[var(--paper-2)] transition">
+        <span>📞</span><span dir="ltr">010 3768 9999</span>
       </a>
-      <a href="https://wa.me/201037689999?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AC%D9%85%D9%84%D8%A9%20%D9%85%D9%86%20DYV"
-         target="_blank" rel="noopener"
+      <a href="https://wa.me/201037689999" target="_blank" rel="noopener"
          class="flex items-center gap-2 bg-[var(--whatsapp)] hover:bg-[var(--whatsapp-dark)] text-white font-bold text-sm sm:text-base px-4 py-2.5 rounded-full shadow-sm transition">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Zm-8.44 18.2h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.8 1 1.01-3.7-.23-.38a9.86 9.86 0 0 1-1.5-5.19c0-5.44 4.43-9.87 9.9-9.87 2.64 0 5.13 1.03 6.99 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.44-4.43 9.87-9.88 9.87Zm5.42-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.37-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.57-.35Z"/></svg>
-        <span>واتساب</span>
+        <span class="i18n" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
       </a>
+    </div>
+  </div>
+  <div class="sm:hidden flex justify-center pb-2">
+    <div class="lang-pill flex items-center border border-[var(--line)] rounded-full p-0.5 text-xs font-bold font-mono">
+      <button data-lang="ar" class="px-3 py-1 rounded-full active">AR</button>
+      <button data-lang="en" class="px-3 py-1 rounded-full">EN</button>
     </div>
   </div>
 </header>
 
 <!-- Hero -->
 <section class="relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-16 sm:pb-20 grid md:grid-cols-2 gap-10 items-center">
-    <div class="reveal" id="rv-hero-text">
+  <div class="glow w-72 h-72 -top-10 end-10"></div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-10 grid md:grid-cols-2 gap-10 items-center relative">
+    <div class="reveal" data-reveal>
       <p class="font-mono text-xs sm:text-sm text-[var(--kraft-dark)] tracking-widest mb-3">DYV · TISSUE &amp; CLEANING SUPPLY CO.</p>
-      <h1 class="font-display font-black text-3xl sm:text-5xl leading-tight text-[var(--ink)]">
-        توريد مناديل ورقية ومنظفات فريدة<br>
-        <span class="text-[var(--kraft-dark)]">بأسعار الجملة</span>، مباشرة لباب مطعمك
+      <h1 class="font-display font-black text-3xl sm:text-5xl leading-tight text-[var(--ink)] i18n" data-ar="توريد مناديل ورقية ومنظفات بأسعار الجملة، مباشرة لباب شغلك" data-en="Wholesale tissue and cleaning supplies, delivered straight to your business">
+        توريد مناديل ورقية ومنظفات بأسعار الجملة، مباشرة لباب شغلك
       </h1>
-      <p class="mt-5 text-[var(--muted)] text-base sm:text-lg leading-relaxed max-w-md">
-        نورّد المطاعم والكافيهات والشركات في <strong class="text-[var(--ink)]">6 أكتوبر</strong> و<strong class="text-[var(--ink)]">الشيخ زايد</strong> بكل احتياجات النظافة والتعبئة، بجودة ثابتة ومواعيد تسليم منتظمة.
+      <p class="mt-5 text-[var(--muted)] text-base sm:text-lg leading-relaxed max-w-md i18n" data-ar="نورّد المطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد بكل احتياجات النظافة والتعبئة، بجودة ثابتة ومواعيد تسليم منتظمة." data-en="We supply restaurants, cafés, and companies across 6th of October and Sheikh Zayed with everything for hygiene and packaging — steady quality, reliable delivery schedules.">
+        نورّد المطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد بكل احتياجات النظافة والتعبئة، بجودة ثابتة ومواعيد تسليم منتظمة.
       </p>
       <div class="mt-7 flex flex-wrap gap-3">
-        <a href="#lead-form" class="bg-[var(--ink)] text-white font-bold px-6 py-3 rounded-lg hover:bg-black transition">سجّل بياناتك واحصل على الخصم</a>
-        <a href="#products" class="border border-[var(--line)] font-bold px-6 py-3 rounded-lg hover:bg-white transition">شاهد المنتجات</a>
+        <a href="#lead-form" class="bg-[var(--ink)] text-white font-bold px-6 py-3 rounded-lg hover:bg-black transition i18n" data-ar="سجّل بياناتك واحصل على الخصم" data-en="Register and get the discount">سجّل بياناتك واحصل على الخصم</a>
+        <a href="#products" class="border border-[var(--line)] font-bold px-6 py-3 rounded-lg hover:bg-white transition i18n" data-ar="شاهد المنتجات" data-en="View products">شاهد المنتجات</a>
       </div>
     </div>
 
-    <div class="relative flex items-center justify-center reveal" id="rv-hero-stamp">
-      <div class="ticket-card rounded-2xl p-8 sm:p-10 w-full max-w-sm relative perf-bottom">
-        <p class="font-mono text-xs text-[var(--muted)] mb-1">عرض إطلاق DYV</p>
-        <p class="font-display font-extrabold text-xl text-[var(--ink)] mb-6">لأصحاب المنشآت الجدد</p>
+    <div class="relative flex items-center justify-center reveal" data-reveal>
+      <div class="card rounded-2xl p-8 sm:p-10 w-full max-w-sm relative perf-bottom">
+        <p class="font-mono text-xs text-[var(--muted)] mb-1 i18n" data-ar="عرض إطلاق DYV" data-en="DYV launch offer">عرض إطلاق DYV</p>
+        <p class="font-display font-extrabold text-xl text-[var(--ink)] mb-6 i18n" data-ar="لأصحاب المنشآت الجدد" data-en="For new business accounts">لأصحاب المنشآت الجدد</p>
         <div class="w-40 h-40 mx-auto stamp stamp-anim flex flex-col items-center justify-center text-center">
           <span class="font-display font-black text-4xl leading-none">10%</span>
-          <span class="font-display font-bold text-xs mt-1">خصم</span>
-          <span class="font-mono text-[10px] mt-1">أول شهرين</span>
+          <span class="font-display font-bold text-xs mt-1 i18n" data-ar="خصم" data-en="OFF">خصم</span>
+          <span class="font-mono text-[10px] mt-1 i18n" data-ar="أول شهرين" data-en="first 2 months">أول شهرين</span>
         </div>
-        <p class="text-center text-xs text-[var(--muted)] mt-6">عند تسجيل بيانات منشأتك من النموذج أدناه</p>
+        <p class="text-center text-xs text-[var(--muted)] mt-6 i18n" data-ar="عند تسجيل بيانات منشأتك من النموذج أدناه" data-en="When you register your business in the form below">عند تسجيل بيانات منشأتك من النموذج أدناه</p>
       </div>
     </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-14 reveal" data-reveal>
+    <div class="hairline mb-8"></div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5" id="trust-grid"></div>
   </div>
 </section>
 
 <!-- Lead form -->
 <section id="lead-form" class="max-w-2xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
-  <div class="ticket-card rounded-2xl perf-top overflow-hidden">
+  <div class="card rounded-2xl perf-top overflow-hidden">
     <div class="bg-[var(--ink)] text-white px-6 py-5">
-      <p class="font-display font-extrabold text-lg">سجّل بيانات منشأتك</p>
-      <p class="text-xs text-white/70 mt-1">4 أسئلة سريعة، أقل من دقيقة</p>
+      <p class="font-display font-extrabold text-lg i18n" data-ar="سجّل بيانات منشأتك" data-en="Register your business">سجّل بيانات منشأتك</p>
+      <p class="text-xs text-white/70 mt-1 i18n" data-ar="4 أسئلة سريعة، أقل من دقيقة" data-en="4 quick questions, under a minute">4 أسئلة سريعة، أقل من دقيقة</p>
     </div>
 
     <div class="px-6 pt-6 flex items-center justify-center gap-2" id="steps-indicator"></div>
 
     <form id="dyv-form" class="px-6 py-8" onsubmit="return false;">
-
       <div class="form-step" data-step="1">
-        <label class="block font-display font-bold text-sm mb-2">اسم المنشأة</label>
-        <input type="text" id="q1" required placeholder="مثال: مطعم النافورة"
-          class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition">
+        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="اسم المنشأة" data-en="Business name">اسم المنشأة</label>
+        <input type="text" id="q1" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition">
       </div>
 
       <div class="form-step hidden" data-step="2">
-        <label class="block font-display font-bold text-sm mb-2">نوع النشاط</label>
-        <select id="q2" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition">
-          <option value="">اختر نوع النشاط</option>
-          <option value="مطعم">مطعم</option>
-          <option value="كافيه">كافيه</option>
-          <option value="فندق / شقق فندقية">فندق / شقق فندقية</option>
-          <option value="شركة / مكتب">شركة / مكتب</option>
-          <option value="أخرى">أخرى</option>
-        </select>
+        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="نوع النشاط" data-en="Business type">نوع النشاط</label>
+        <select id="q2" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition"></select>
       </div>
 
       <div class="form-step hidden" data-step="3">
-        <label class="block font-display font-bold text-sm mb-2">متوسط الاستهلاك الشهري (تقريبي)</label>
-        <select id="q3" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition">
-          <option value="">اختر الفئة</option>
-          <option value="أقل من 5,000 جنيه">أقل من 5,000 جنيه</option>
-          <option value="5,000 - 15,000 جنيه">5,000 - 15,000 جنيه</option>
-          <option value="15,000 - 30,000 جنيه">15,000 - 30,000 جنيه</option>
-          <option value="أكثر من 30,000 جنيه">أكثر من 30,000 جنيه</option>
-        </select>
+        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="متوسط الاستهلاك الشهري (تقريبي)" data-en="Average monthly spend (approx.)">متوسط الاستهلاك الشهري (تقريبي)</label>
+        <select id="q3" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition"></select>
       </div>
 
       <div class="form-step hidden" data-step="4">
-        <label class="block font-display font-bold text-sm mb-2">رقم الواتساب للتواصل</label>
-        <input type="tel" id="q4" required placeholder="01xxxxxxxxx" dir="ltr"
-          class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition font-mono">
+        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="رقم الواتساب للتواصل" data-en="WhatsApp number">رقم الواتساب للتواصل</label>
+        <input type="tel" id="q4" required placeholder="01xxxxxxxxx" dir="ltr" class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition font-mono">
       </div>
 
       <div class="mt-8 flex items-center justify-between gap-3">
-        <button type="button" id="btn-back" class="px-5 py-3 rounded-lg font-bold text-[var(--muted)] hover:bg-[var(--paper-2)] transition hidden">السابق</button>
+        <button type="button" id="btn-back" class="px-5 py-3 rounded-lg font-bold text-[var(--muted)] hover:bg-[var(--paper-2)] transition hidden i18n" data-ar="السابق" data-en="Back">السابق</button>
         <div class="flex-1"></div>
-        <button type="button" id="btn-next" class="px-6 py-3 rounded-lg font-bold bg-[var(--ink)] text-white hover:bg-black transition">التالي</button>
-        <button type="button" id="btn-submit" class="hidden px-6 py-3 rounded-lg font-bold bg-[var(--whatsapp)] hover:bg-[var(--whatsapp-dark)] text-white transition">إرسال عبر واتساب</button>
+        <button type="button" id="btn-next" class="px-6 py-3 rounded-lg font-bold bg-[var(--ink)] text-white hover:bg-black transition i18n" data-ar="التالي" data-en="Next">التالي</button>
+        <button type="button" id="btn-submit" class="hidden px-6 py-3 rounded-lg font-bold bg-[var(--whatsapp)] hover:bg-[var(--whatsapp-dark)] text-white transition i18n" data-ar="إرسال عبر واتساب" data-en="Send via WhatsApp">إرسال عبر واتساب</button>
       </div>
-      <p id="form-error" class="text-[var(--stamp)] text-sm mt-3 hidden">من فضلك أكمل هذه الخانة قبل المتابعة.</p>
+      <p id="form-error" class="text-[var(--stamp)] text-sm mt-3 hidden i18n" data-ar="من فضلك أكمل هذه الخانة قبل المتابعة." data-en="Please fill this field before continuing.">من فضلك أكمل هذه الخانة قبل المتابعة.</p>
     </form>
   </div>
 </section>
 
+<!-- Why DYV -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
+  <div class="mb-8">
+    <p class="font-mono text-xs text-[var(--kraft-dark)] tracking-widest mb-2 i18n" data-ar="لماذا DYV" data-en="WHY DYV">لماذا DYV</p>
+    <h2 class="font-display font-black text-2xl sm:text-3xl i18n" data-ar="شريك توريد تقدر تعتمد عليه" data-en="A supply partner you can rely on">شريك توريد تقدر تعتمد عليه</h2>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="why-grid"></div>
+</section>
+
 <!-- Products -->
 <section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
+  <div class="hairline mb-10"></div>
   <div class="mb-8">
-    <p class="font-mono text-xs text-[var(--kraft-dark)] tracking-widest mb-2">PRICE LIST · قائمة المنتجات</p>
-    <h2 class="font-display font-black text-2xl sm:text-3xl">أهم 10 منتجات لدينا</h2>
-    <p class="text-[var(--muted)] mt-2">اضغط "اطلب بسعر الجملة" وسيتم فتح واتساب برسالة جاهزة تحمل كود المنتج.</p>
+    <p class="font-mono text-xs text-[var(--kraft-dark)] tracking-widest mb-2 i18n" data-ar="قائمة المنتجات" data-en="PRICE LIST">قائمة المنتجات</p>
+    <h2 class="font-display font-black text-2xl sm:text-3xl i18n" data-ar="أهم 10 منتجات لدينا" data-en="Our top 10 products">أهم 10 منتجات لدينا</h2>
+    <p class="text-[var(--muted)] mt-2 i18n" data-ar='اضغط "اطلب بسعر الجملة" وسيتم فتح واتساب برسالة جاهزة تحمل كود المنتج.' data-en='Tap "Order at wholesale price" to open WhatsApp with a ready message including the product code.'>اضغط "اطلب بسعر الجملة" وسيتم فتح واتساب برسالة جاهزة تحمل كود المنتج.</p>
   </div>
-
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="product-grid"></div>
+</section>
+
+<!-- How it works -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
+  <div class="mb-8">
+    <p class="font-mono text-xs text-[var(--kraft-dark)] tracking-widest mb-2 i18n" data-ar="خطوات الطلب" data-en="ORDER PROCESS">خطوات الطلب</p>
+    <h2 class="font-display font-black text-2xl sm:text-3xl i18n" data-ar="طلب بسيط في 3 خطوات" data-en="A simple 3-step order">طلب بسيط في 3 خطوات</h2>
+  </div>
+  <div class="grid sm:grid-cols-3 gap-5" id="steps-grid"></div>
 </section>
 
 <!-- Footer -->
@@ -227,163 +269,287 @@
     <div>
       <div class="flex items-center gap-2 mb-3">
         <div class="w-10 h-10 rounded-lg bg-white text-[var(--ink)] flex items-center justify-center font-display font-black">DYV</div>
-        <p class="font-display font-extrabold">DYV للتوريدات</p>
+        <p class="font-display font-extrabold i18n" data-ar="DYV للتوريدات" data-en="DYV Supplies">DYV للتوريدات</p>
       </div>
-      <p class="text-white/70 text-sm leading-relaxed max-w-xs">
-        توريد مناديل ورقية ومنظفات ومطهرات (فريدة) بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد.
-      </p>
+      <p class="text-white/70 text-sm leading-relaxed max-w-xs i18n" data-ar="توريد مناديل ورقية ومنظفات ومطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد." data-en="Wholesale tissue and cleaning supplies for restaurants, cafés, and companies across 6th of October and Sheikh Zayed.">توريد مناديل ورقية ومنظفات ومطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد.</p>
     </div>
 
     <div>
-      <p class="font-display font-bold mb-3">تواصل معنا</p>
+      <p class="font-display font-bold mb-3 i18n" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</p>
       <a href="tel:+201037689999" class="flex items-center gap-2 font-mono text-sm mb-3 hover:text-[var(--kraft)] transition w-fit" dir="ltr">📞 010 3768 9999</a>
       <a href="https://wa.me/201037689999" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 bg-[var(--whatsapp)] hover:bg-[var(--whatsapp-dark)] text-white font-bold text-sm px-4 py-2.5 rounded-full transition">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Z"/></svg>
-        راسلنا على واتساب
+        <span class="i18n" data-ar="راسلنا على واتساب" data-en="Message us on WhatsApp">راسلنا على واتساب</span>
       </a>
     </div>
 
     <div>
-      <p class="font-display font-bold mb-3">الدفع</p>
+      <p class="font-display font-bold mb-3 i18n" data-ar="الدفع" data-en="Payment">الدفع</p>
       <div class="bg-white rounded-xl p-4 w-fit">
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=InstaPay%3A%2001037689999%20-%20DYV%20Supplies"
-             alt="رمز الدفع InstaPay لـ DYV" width="140" height="140" class="rounded">
+             alt="InstaPay QR — DYV" width="140" height="140" class="rounded">
       </div>
-      <p class="text-white/70 text-xs mt-3 max-w-xs leading-relaxed">
-        ادفع بسهولة عبر InstaPay بمسح الكود، أو اختر الدفع نقداً عند الاستلام.
-      </p>
+      <p class="text-white/70 text-xs mt-3 max-w-xs leading-relaxed i18n" data-ar="ادفع بسهولة عبر InstaPay بمسح الكود، أو اختر الدفع نقداً عند الاستلام." data-en="Pay easily via InstaPay by scanning the code, or choose cash on delivery.">ادفع بسهولة عبر InstaPay بمسح الكود، أو اختر الدفع نقداً عند الاستلام.</p>
     </div>
   </div>
-
   <div class="border-t border-white/10 py-5 text-center text-white/50 text-xs">
-    © <span id="year"></span> DYV Supplies — جميع الحقوق محفوظة
+    © <span id="year"></span> <span class="i18n" data-ar="DYV Supplies — جميع الحقوق محفوظة" data-en="DYV Supplies — All rights reserved">DYV Supplies — جميع الحقوق محفوظة</span>
   </div>
 </footer>
 </section>
 
+<!-- Sticky mobile WhatsApp -->
+<a href="https://wa.me/201037689999" target="_blank" rel="noopener"
+   class="sm:hidden fixed bottom-4 end-4 z-50 w-14 h-14 rounded-full bg-[var(--whatsapp)] text-white flex items-center justify-center shadow-lg">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Zm-8.44 18.2h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.8 1 1.01-3.7-.23-.38a9.86 9.86 0 0 1-1.5-5.19c0-5.44 4.43-9.87 9.9-9.87 2.64 0 5.13 1.03 6.99 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.44-4.43 9.87-9.88 9.87Z"/></svg>
+</a>
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, {threshold:0.15});
-  revealEls.forEach(el=>io.observe(el));
+/* ---------- Reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
 
-  const WA_NUMBER = "201037689999";
-  const products = [
-    {code:"DYV-PT-01", cat:"ورقيات", name:"مناديل سفرة (كوتشينة)", desc:"مناديل ناعمة متعددة الاستخدام للطاولات."},
-    {code:"DYV-PT-02", cat:"ورقيات", name:"رول مطبخ (تنشيف)", desc:"امتصاص عالي للمطابخ التجارية."},
-    {code:"DYV-PT-03", cat:"ورقيات", name:"رول مناديل تواليت", desc:"اقتصادي ومناسب للحمامات العامة."},
-    {code:"DYV-PT-04", cat:"ورقيات", name:"فوط تجفيف أيدي", desc:"تيشو تجفيف أيدي للمطاعم والمكاتب."},
-    {code:"DYV-CL-01", cat:"منظفات فريدة", name:"سائل غسيل أطباق", desc:"تركيز عالي يزيل الدهون بسرعة."},
-    {code:"DYV-CL-02", cat:"منظفات فريدة", name:"مطهر أرضيات", desc:"رائحة مركزة تدوم طويلاً."},
-    {code:"DYV-CL-03", cat:"منظفات فريدة", name:"معقم أسطح", desc:"يقضي على 99.9% من الجراثيم."},
-    {code:"DYV-CL-04", cat:"منظفات فريدة", name:"صابون سائل لليدين", desc:"تركيبة لطيفة ومناسبة للاستخدام المتكرر."},
-    {code:"DYV-PK-01", cat:"تعبئة وتغليف", name:"أكياس نايلون تعبئة", desc:"مقاسات متعددة لتغليف الطلبات."},
-    {code:"DYV-PK-02", cat:"تعبئة وتغليف", name:"رول استرتش تغليف", desc:"لتثبيت وتغليف البضائع والمنتجات."},
-  ];
+/* ---------- Language state ---------- */
+let LANG = 'ar';
+const WA_NUMBER = "201037689999";
 
-  const iconFor = (cat) => {
-    if(cat === "ورقيات") return `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>`;
-    if(cat === "منظفات فريدة") return `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6v3l2 2v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8l2-2V3Z"/><path d="M9 12h6"/></svg>`;
-    return `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>`;
-  };
+function applyStaticI18n(){
+  document.querySelectorAll('.i18n').forEach(el=>{
+    const val = el.dataset[LANG];
+    if(val !== undefined) el.textContent = val;
+  });
+  document.documentElement.setAttribute('lang', LANG);
+  document.documentElement.setAttribute('dir', LANG === 'ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('.lang-pill button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === LANG);
+  });
+}
 
+document.querySelectorAll('.lang-pill button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    LANG = btn.dataset.lang;
+    applyStaticI18n();
+    renderSelects();
+    renderTrust();
+    renderProducts();
+    renderSteps();
+    showStep(current);
+  });
+});
+
+/* ---------- Trust strip ---------- */
+const trustItems = [
+  { icon:'truck', ar:'توصيل سريع', en:'Fast delivery', ar_d:'مواعيد تسليم منتظمة لمنطقتك', en_d:'Reliable delivery schedules in your area' },
+  { icon:'tag', ar:'أسعار جملة مباشرة', en:'Direct wholesale pricing', ar_d:'بدون وسطاء، سعر جملة حقيقي', en_d:'No middlemen, real wholesale rates' },
+  { icon:'chat', ar:'طلب مباشر واتساب', en:'Order via WhatsApp', ar_d:'تواصل مباشر بدون تعقيد', en_d:'Direct contact, no hassle' },
+  { icon:'shield', ar:'جودة ثابتة', en:'Consistent quality', ar_d:'نفس المواصفات في كل طلبية', en_d:'Same specs, every single order' },
+];
+const iconSvg = {
+  truck: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3z"/><path d="M14 11h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>`,
+  tag: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3h6v6L9 18l-6-6L12 3Z"/><circle cx="15" cy="6" r="1.2"/></svg>`,
+  chat: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5Z"/></svg>`,
+  shield: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>`,
+};
+function renderTrust(){
+  const wrap = document.getElementById('trust-grid');
+  wrap.innerHTML = "";
+  trustItems.forEach(t=>{
+    const div = document.createElement('div');
+    div.className = "card rounded-xl p-4 flex flex-col gap-2";
+    div.innerHTML = `
+      <div class="w-9 h-9 rounded-lg bg-[var(--paper-2)] text-[var(--kraft-dark)] flex items-center justify-center">${iconSvg[t.icon]}</div>
+      <p class="font-display font-bold text-sm">${LANG==='ar'?t.ar:t.en}</p>
+      <p class="text-xs text-[var(--muted)]">${LANG==='ar'?t.ar_d:t.en_d}</p>`;
+    wrap.appendChild(div);
+  });
+}
+
+/* ---------- Why DYV (reuses trust items with extra depth) ---------- */
+function renderWhy(){
+  const wrap = document.getElementById('why-grid');
+  wrap.innerHTML = "";
+  trustItems.forEach(t=>{
+    const div = document.createElement('div');
+    div.className = "card card-hover rounded-xl p-5 flex flex-col gap-3";
+    div.innerHTML = `
+      <div class="w-10 h-10 rounded-lg bg-[var(--paper-2)] text-[var(--kraft-dark)] flex items-center justify-center">${iconSvg[t.icon]}</div>
+      <p class="font-display font-bold text-base">${LANG==='ar'?t.ar:t.en}</p>
+      <p class="text-sm text-[var(--muted)]">${LANG==='ar'?t.ar_d:t.en_d}</p>`;
+    wrap.appendChild(div);
+  });
+}
+
+/* ---------- How it works ---------- */
+const orderSteps = [
+  { ar:'راسلنا على واتساب', en:'Message us on WhatsApp', ar_d:'ابعتلنا اسم المنتج والكمية المطلوبة', en_d:'Send us the product name and quantity you need' },
+  { ar:'نأكد السعر والكمية', en:'We confirm price & quantity', ar_d:'هنرد بسعر الجملة وميعاد التسليم', en_d:"We'll reply with the wholesale price and delivery time" },
+  { ar:'التسليم والدفع', en:'Delivery & payment', ar_d:'استلم طلبك وادفع InstaPay أو نقداً', en_d:'Receive your order, pay via InstaPay or cash' },
+];
+function renderSteps(){
+  const wrap = document.getElementById('steps-grid');
+  wrap.innerHTML = "";
+  orderSteps.forEach((s,i)=>{
+    const div = document.createElement('div');
+    div.className = "card rounded-xl p-6 relative";
+    div.innerHTML = `
+      <span class="font-mono text-xs text-[var(--kraft-dark)] border border-[var(--line)] rounded-full w-7 h-7 flex items-center justify-center mb-4">${i+1}</span>
+      <p class="font-display font-bold text-base mb-2">${LANG==='ar'?s.ar:s.en}</p>
+      <p class="text-sm text-[var(--muted)]">${LANG==='ar'?s.ar_d:s.en_d}</p>`;
+    wrap.appendChild(div);
+  });
+}
+
+/* ---------- Product data & icons ---------- */
+const products = [
+  {code:"DYV-PT-01", cat:"paper", ar:"مناديل سفرة (كوتشينة)", en:"Table napkins", ar_d:"مناديل ناعمة متعددة الاستخدام للطاولات.", en_d:"Soft multi-use napkins for restaurant tables."},
+  {code:"DYV-PT-02", cat:"paper", ar:"رول مطبخ (تنشيف)", en:"Kitchen towel roll", ar_d:"امتصاص عالي للمطابخ التجارية.", en_d:"High absorbency for commercial kitchens."},
+  {code:"DYV-PT-03", cat:"paper", ar:"رول مناديل تواليت", en:"Toilet paper roll", ar_d:"اقتصادي ومناسب للحمامات العامة.", en_d:"Economical, suited for public restrooms."},
+  {code:"DYV-PT-04", cat:"paper", ar:"فوط تجفيف أيدي", en:"Hand towel tissue", ar_d:"تيشو تجفيف أيدي للمطاعم والمكاتب.", en_d:"Hand-drying tissue for restaurants and offices."},
+  {code:"DYV-CL-01", cat:"clean", ar:"سائل غسيل أطباق", en:"Dish washing liquid", ar_d:"تركيز عالي يزيل الدهون بسرعة.", en_d:"High concentration, cuts through grease fast."},
+  {code:"DYV-CL-02", cat:"clean", ar:"مطهر أرضيات", en:"Floor disinfectant", ar_d:"رائحة مركزة تدوم طويلاً.", en_d:"Concentrated scent that lasts."},
+  {code:"DYV-CL-03", cat:"clean", ar:"معقم أسطح", en:"Surface disinfectant", ar_d:"يقضي على 99.9% من الجراثيم.", en_d:"Kills 99.9% of germs."},
+  {code:"DYV-CL-04", cat:"clean", ar:"صابون سائل لليدين", en:"Liquid hand soap", ar_d:"تركيبة لطيفة ومناسبة للاستخدام المتكرر.", en_d:"Gentle formula for frequent use."},
+  {code:"DYV-PK-01", cat:"pack", ar:"أكياس نايلون تعبئة", en:"Nylon packing bags", ar_d:"مقاسات متعددة لتغليف الطلبات.", en_d:"Multiple sizes for packing orders."},
+  {code:"DYV-PK-02", cat:"pack", ar:"رول استرتش تغليف", en:"Stretch wrap roll", ar_d:"لتثبيت وتغليف البضائع والمنتجات.", en_d:"For securing and wrapping goods."},
+];
+const catIcon = {
+  paper: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>`,
+  clean: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6v3l2 2v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8l2-2V3Z"/><path d="M9 12h6"/></svg>`,
+  pack: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>`,
+};
+function renderProducts(){
   const grid = document.getElementById('product-grid');
+  grid.innerHTML = "";
+  const orderLabel = LANG==='ar' ? 'اطلب بسعر الجملة' : 'Order at wholesale price';
   products.forEach(p=>{
-    const msg = encodeURIComponent(`مرحباً، أريد طلب سعر جملة للمنتج: ${p.name} (كود ${p.code})`);
+    const name = LANG==='ar' ? p.ar : p.en;
+    const desc = LANG==='ar' ? p.ar_d : p.en_d;
+    const msgText = LANG==='ar'
+      ? `مرحباً، أريد طلب سعر جملة للمنتج: ${p.ar} (كود ${p.code})`
+      : `Hello, I'd like a wholesale quote for: ${p.en} (code ${p.code})`;
     const card = document.createElement('div');
-    card.className = "ticket-card rounded-xl p-5 flex flex-col hover:-translate-y-0.5 hover:shadow-md transition";
+    card.className = "card card-hover rounded-xl p-5 flex flex-col";
     card.innerHTML = `
       <div class="flex items-start justify-between mb-3">
-        <div class="w-11 h-11 rounded-lg bg-[var(--paper-2)] text-[var(--kraft-dark)] flex items-center justify-center">${iconFor(p.cat)}</div>
+        <div class="w-11 h-11 rounded-lg bg-[var(--paper-2)] text-[var(--kraft-dark)] flex items-center justify-center">${catIcon[p.cat]}</div>
         <span class="font-mono text-[10px] text-[var(--muted)] border border-[var(--line)] rounded px-2 py-1">${p.code}</span>
       </div>
-      <p class="font-display font-bold text-base">${p.name}</p>
-      <p class="text-xs text-[var(--muted)] mt-1 mb-4 flex-1">${p.desc}</p>
-      <a href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank" rel="noopener"
-         class="text-center bg-[var(--ink)] hover:bg-black text-white text-sm font-bold py-2.5 rounded-lg transition">
-         اطلب بسعر الجملة
-      </a>`;
+      <p class="font-display font-bold text-base">${name}</p>
+      <p class="text-xs text-[var(--muted)] mt-1 mb-4 flex-1">${desc}</p>
+      <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msgText)}" target="_blank" rel="noopener"
+         class="text-center bg-[var(--ink)] hover:bg-black text-white text-sm font-bold py-2.5 rounded-lg transition">${orderLabel}</a>`;
     grid.appendChild(card);
   });
+}
 
-  const steps = Array.from(document.querySelectorAll('.form-step'));
-  const totalSteps = steps.length;
-  let current = 1;
-  const indicator = document.getElementById('steps-indicator');
-  const answers = {};
+/* ---------- Lead form ---------- */
+const bizTypes = [
+  {ar:"اختر نوع النشاط", en:"Select business type", v:""},
+  {ar:"مطعم", en:"Restaurant"},
+  {ar:"كافيه", en:"Café"},
+  {ar:"فندق / شقق فندقية", en:"Hotel / serviced apartments"},
+  {ar:"شركة / مكتب", en:"Company / office"},
+  {ar:"أخرى", en:"Other"},
+];
+const spendRanges = [
+  {ar:"اختر الفئة", en:"Select a range", v:""},
+  {ar:"أقل من 5,000 جنيه", en:"Under EGP 5,000"},
+  {ar:"5,000 - 15,000 جنيه", en:"EGP 5,000 - 15,000"},
+  {ar:"15,000 - 30,000 جنيه", en:"EGP 15,000 - 30,000"},
+  {ar:"أكثر من 30,000 جنيه", en:"Over EGP 30,000"},
+];
+function fillSelect(id, items){
+  const sel = document.getElementById(id);
+  const prevValue = sel.value;
+  sel.innerHTML = "";
+  items.forEach((it,i)=>{
+    const opt = document.createElement('option');
+    opt.value = it.v !== undefined ? it.v : (LANG==='ar'?it.ar:it.en);
+    opt.textContent = LANG==='ar' ? it.ar : it.en;
+    sel.appendChild(opt);
+  });
+  if(prevValue) sel.value = prevValue;
+}
+function renderSelects(){
+  fillSelect('q2', bizTypes);
+  fillSelect('q3', spendRanges);
+}
 
-  function renderIndicator(){
-    indicator.innerHTML = "";
-    for(let i=1;i<=totalSteps;i++){
-      const dot = document.createElement('div');
-      const active = i === current;
-      const done = i < current;
-      dot.className = `w-8 h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold border-2 transition ${
-        active ? 'bg-[var(--ink)] text-white border-[var(--ink)]' :
-        done ? 'bg-[var(--kraft)] text-white border-[var(--kraft)]' :
-        'bg-transparent text-[var(--muted)] border-[var(--line)]'
-      }`;
-      dot.textContent = i;
-      indicator.appendChild(dot);
-      if(i < totalSteps){
-        const line = document.createElement('div');
-        line.className = `w-6 h-0.5 ${i < current ? 'bg-[var(--kraft)]' : 'bg-[var(--line)]'}`;
-        indicator.appendChild(line);
-      }
+const steps = Array.from(document.querySelectorAll('.form-step'));
+const totalSteps = steps.length;
+let current = 1;
+const indicator = document.getElementById('steps-indicator');
+const answers = {};
+
+function renderIndicator(){
+  indicator.innerHTML = "";
+  for(let i=1;i<=totalSteps;i++){
+    const dot = document.createElement('div');
+    const active = i === current, done = i < current;
+    dot.className = `w-8 h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold border-2 transition ${
+      active ? 'bg-[var(--ink)] text-white border-[var(--ink)]' :
+      done ? 'bg-[var(--kraft)] text-white border-[var(--kraft)]' :
+      'bg-transparent text-[var(--muted)] border-[var(--line)]'
+    }`;
+    dot.textContent = i;
+    indicator.appendChild(dot);
+    if(i < totalSteps){
+      const line = document.createElement('div');
+      line.className = `w-6 h-0.5 ${i < current ? 'bg-[var(--kraft)]' : 'bg-[var(--line)]'}`;
+      indicator.appendChild(line);
     }
   }
-
-  function showStep(n){
-    steps.forEach(s => s.classList.toggle('hidden', Number(s.dataset.step) !== n));
-    document.getElementById('btn-back').classList.toggle('hidden', n === 1);
-    document.getElementById('btn-next').classList.toggle('hidden', n === totalSteps);
-    document.getElementById('btn-submit').classList.toggle('hidden', n !== totalSteps);
-    document.getElementById('form-error').classList.add('hidden');
-    renderIndicator();
+}
+function showStep(n){
+  steps.forEach(s => s.classList.toggle('hidden', Number(s.dataset.step) !== n));
+  document.getElementById('btn-back').classList.toggle('hidden', n === 1);
+  document.getElementById('btn-next').classList.toggle('hidden', n === totalSteps);
+  document.getElementById('btn-submit').classList.toggle('hidden', n !== totalSteps);
+  document.getElementById('form-error').classList.add('hidden');
+  renderIndicator();
+}
+function currentInputId(n){ return `q${n}`; }
+function validateStep(n){
+  const el = document.getElementById(currentInputId(n));
+  if(!el.value || el.value.trim() === ""){
+    document.getElementById('form-error').classList.remove('hidden');
+    el.focus();
+    return false;
   }
-
-  function currentInputId(n){ return `q${n}`; }
-
-  function validateStep(n){
-    const el = document.getElementById(currentInputId(n));
-    if(!el.value || el.value.trim() === ""){
-      document.getElementById('form-error').classList.remove('hidden');
-      el.focus();
-      return false;
-    }
-    answers[currentInputId(n)] = el.value.trim();
-    return true;
-  }
-
-  document.getElementById('btn-next').addEventListener('click', ()=>{
-    if(!validateStep(current)) return;
-    current = Math.min(current+1, totalSteps);
-    showStep(current);
-  });
-
-  document.getElementById('btn-back').addEventListener('click', ()=>{
-    current = Math.max(current-1, 1);
-    showStep(current);
-  });
-
-  document.getElementById('btn-submit').addEventListener('click', ()=>{
-    if(!validateStep(current)) return;
-    const msg = `طلب تسجيل عرض DYV (خصم 10%)
-اسم المنشأة: ${answers.q1 || ''}
-نوع النشاط: ${answers.q2 || ''}
-الاستهلاك الشهري: ${answers.q3 || ''}
-رقم الواتساب: ${answers.q4 || ''}`;
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-  });
-
+  answers[currentInputId(n)] = el.value.trim();
+  return true;
+}
+document.getElementById('btn-next').addEventListener('click', ()=>{
+  if(!validateStep(current)) return;
+  current = Math.min(current+1, totalSteps);
   showStep(current);
+});
+document.getElementById('btn-back').addEventListener('click', ()=>{
+  current = Math.max(current-1, 1);
+  showStep(current);
+});
+document.getElementById('btn-submit').addEventListener('click', ()=>{
+  if(!validateStep(current)) return;
+  const msg = LANG === 'ar'
+    ? `طلب تسجيل عرض DYV (خصم 10%)\nاسم المنشأة: ${answers.q1||''}\nنوع النشاط: ${answers.q2||''}\nالاستهلاك الشهري: ${answers.q3||''}\nرقم الواتساب: ${answers.q4||''}`
+    : `DYV offer registration (10% OFF)\nBusiness name: ${answers.q1||''}\nBusiness type: ${answers.q2||''}\nMonthly spend: ${answers.q3||''}\nWhatsApp number: ${answers.q4||''}`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+/* ---------- Init ---------- */
+applyStaticI18n();
+renderSelects();
+renderTrust();
+renderWhy();
+renderProducts();
+renderSteps();
+showStep(current);
 </script>
 
 </body>
