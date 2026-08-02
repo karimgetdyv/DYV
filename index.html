@@ -1,525 +1,222 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYV | توريدات مناديل ومنظفات بالجملة</title>
-<meta name="description" content="DYV — توريد المناديل الورقية والمنظفات والمطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد.">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#0B2545;
-    --navy-2:#123163;
-    --navy-3:#1B3E73;
-    --teal:#14B8A6;
-    --teal-dark:#0D9488;
-    --white:#FFFFFF;
-    --paper:#F5F8FA;
-    --ink:#0B2545;
-    --muted:#5B6B82;
-    --line:#E2E8F0;
-    --whatsapp:#25D366;
-    --whatsapp-dark:#1DA851;
-    --badge:#E9585A;
-    --font-display:'Cairo', sans-serif;
-    --font-body:'Tajawal', sans-serif;
-  }
-  html[lang="en"]{
-    --font-display:'Inter', sans-serif;
-    --font-body:'Inter', sans-serif;
-  }
-  html{scroll-behavior:smooth;}
-  body{ background:var(--paper); color:var(--ink); font-family:var(--font-body); }
-  .font-display{font-family:var(--font-display);}
-  .font-mono{font-family:'Inter',sans-serif; direction:ltr; unicode-bidi:plaintext; font-variant-numeric:tabular-nums;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYV - Coming Soon</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --bg-card: #131b2e;
+            --accent-navy: #002b66;
+            --accent-teal: #00a88f;
+            --accent-teal-glow: rgba(0, 168, 143, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+        }
 
-  .hero-gradient{
-    background:
-      radial-gradient(1200px 400px at 15% -10%, rgba(20,184,166,.20), transparent 60%),
-      linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 55%, var(--navy-3) 100%);
-  }
-  .wave-divider{ display:block; width:100%; height:56px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-  .card{
-    background:var(--white);
-    border:1px solid var(--line);
-    box-shadow: 0 1px 2px rgba(11,37,69,.04), 0 10px 28px -14px rgba(11,37,69,.16);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .card:hover{ transform:translateY(-4px); box-shadow:0 1px 2px rgba(11,37,69,.05), 0 20px 34px -16px rgba(11,37,69,.24); }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-  .btn-primary{
-    background:var(--navy); color:#fff; transition:background-color .25s ease, transform .2s ease;
-  }
-  .btn-primary:hover{ background:var(--teal-dark); }
+        /* Ambient Glow Background Effects */
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 168, 143, 0.15) 0%, rgba(10, 15, 29, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
 
-  .btn-whatsapp{
-    background:var(--whatsapp); color:#fff; transition:background-color .25s ease, transform .2s ease, box-shadow .25s ease;
-  }
-  .btn-whatsapp:hover{ background:var(--whatsapp-dark); box-shadow:0 6px 18px -6px rgba(37,211,102,.55); }
+        .glow-secondary {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 43, 102, 0.4) 0%, rgba(10, 15, 29, 0) 70%);
+            top: -100px;
+            right: -100px;
+            z-index: 0;
+        }
 
-  .phone-chip{ transition:background-color .2s ease, border-color .2s ease, color .2s ease; }
-  .phone-chip:hover{ background:var(--paper); border-color:var(--teal); color:var(--teal-dark); }
+        /* Main Container Card */
+        .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(19, 27, 46, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
 
-  .seal{
-    position:relative; width:9rem; height:9rem; border-radius:9999px;
-    background:conic-gradient(from 0deg, var(--teal), var(--teal-dark), var(--teal));
-    display:flex; align-items:center; justify-content:center;
-  }
-  .seal::before{
-    content:""; position:absolute; inset:6px; border-radius:9999px; background:var(--navy);
-  }
-  .seal-inner{ position:relative; z-index:1; text-align:center; color:#fff; }
+        /* Vector Logo Section (No subtitle/line) */
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #0b3b75;
+            margin-bottom: 25px;
+            line-height: 1;
+        }
 
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+        .logo-y {
+            color: var(--accent-teal);
+            position: relative;
+            margin: 0 -2px;
+            display: inline-block;
+        }
 
-  .lang-pill button{transition:background .2s ease, color .2s ease;}
-  .lang-pill button.active{background:var(--navy); color:#fff;}
+        /* Decorative Leaf/Paper accent on 'Y' */
+        .logo-y::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: -2px;
+            width: 14px;
+            height: 35px;
+            border-right: 3px solid #34d399;
+            border-radius: 0 20px 20px 0;
+            opacity: 0.8;
+        }
 
-  .prod-img{ aspect-ratio: 4/3; object-fit:cover; width:100%; }
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: rgba(0, 168, 143, 0.1);
+            border: 1px solid var(--accent-teal);
+            color: var(--accent-teal);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-  ::selection{background:var(--teal); color:#fff;}
-  input:focus, select:focus, button:focus-visible{outline:3px solid var(--teal-dark); outline-offset:2px;}
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
 
-  @media (prefers-reduced-motion: reduce){
-    .reveal{transition:none; opacity:1; transform:none;}
-    .card, .btn-primary, .btn-whatsapp, .phone-chip{transition:none;}
-  }
-</style>
+        p.description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px 24px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-box:hover {
+            border-color: var(--accent-teal);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-teal);
+        }
+
+        .phone-link {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .phone-link:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Footer Copy */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: rgba(148, 163, 184, 0.5);
+        }
+    </style>
 </head>
-<body class="antialiased">
+<body>
 
-<!-- Header -->
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[var(--line)]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-    <div class="flex items-center gap-2">
-      <div class="w-11 h-11 rounded-lg bg-[var(--navy)] text-white flex items-center justify-center font-display font-black text-lg">DYV</div>
-      <div class="hidden sm:block leading-tight">
-        <p class="font-display font-extrabold text-sm i18n" data-ar="DYV للتوريدات" data-en="DYV Supplies">DYV للتوريدات</p>
-        <p class="text-xs text-[var(--muted)] i18n" data-ar="مناديل · منظفات · تعبئة وتغليف" data-en="Tissue · Cleaning · Packaging">مناديل · منظفات · تعبئة وتغليف</p>
-      </div>
-    </div>
+    <div class="glow-bg"></div>
+    <div class="glow-secondary"></div>
 
-    <div class="flex items-center gap-2 sm:gap-3">
-      <div class="lang-pill hidden sm:flex items-center border border-[var(--line)] rounded-full p-0.5 text-xs font-bold font-mono">
-        <button data-lang="ar" class="px-3 py-1.5 rounded-full active">AR</button>
-        <button data-lang="en" class="px-3 py-1.5 rounded-full">EN</button>
-      </div>
-      <a href="tel:+201037689999" class="phone-chip hidden md:flex items-center gap-2 font-mono text-sm text-[var(--ink)] px-3 py-2 rounded-lg border border-[var(--line)]">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8.5 6.5 15 15 15l2-4-5-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-5-4 1Z"/></svg>
-        <span dir="ltr">010 3768 9999</span>
-      </a>
-      <a href="https://wa.me/201037689999" target="_blank" rel="noopener"
-         class="btn-whatsapp flex items-center gap-2 font-bold text-sm sm:text-base px-4 py-2.5 rounded-full shadow-sm">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Zm-8.44 18.2h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.8 1 1.01-3.7-.23-.38a9.86 9.86 0 0 1-1.5-5.19c0-5.44 4.43-9.87 9.9-9.87 2.64 0 5.13 1.03 6.99 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.44-4.43 9.87-9.88 9.87Zm5.42-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.37-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.57-.35Z"/></svg>
-        <span class="i18n" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
-      </a>
-    </div>
-  </div>
-  <div class="sm:hidden flex justify-center pb-2">
-    <div class="lang-pill flex items-center border border-[var(--line)] rounded-full p-0.5 text-xs font-bold font-mono">
-      <button data-lang="ar" class="px-3 py-1 rounded-full active">AR</button>
-      <button data-lang="en" class="px-3 py-1 rounded-full">EN</button>
-    </div>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero-gradient relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-20 grid md:grid-cols-2 gap-10 items-center relative">
-    <div class="reveal" data-reveal>
-      <p class="font-mono text-xs sm:text-sm text-[var(--teal)] tracking-widest mb-3">DYV · TISSUE &amp; CLEANING SUPPLY CO.</p>
-      <h1 class="font-display font-black text-3xl sm:text-5xl leading-tight text-white i18n" data-ar="توريد مناديل ورقية ومنظفات بأسعار الجملة، مباشرة لباب شغلك" data-en="Wholesale tissue and cleaning supplies, delivered straight to your business">
-        توريد مناديل ورقية ومنظفات بأسعار الجملة، مباشرة لباب شغلك
-      </h1>
-      <p class="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-md i18n" data-ar="نورّد المطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد بكل احتياجات النظافة والتعبئة، بجودة ثابتة ومواعيد تسليم منتظمة." data-en="We supply restaurants, cafés, and companies across 6th of October and Sheikh Zayed with everything for hygiene and packaging — steady quality, reliable delivery schedules.">
-        نورّد المطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد بكل احتياجات النظافة والتعبئة، بجودة ثابتة ومواعيد تسليم منتظمة.
-      </p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a href="#lead-form" class="btn-primary font-bold px-6 py-3 rounded-lg i18n" data-ar="سجّل بياناتك واحصل على الخصم" data-en="Register and get the discount">سجّل بياناتك واحصل على الخصم</a>
-        <a href="#products" class="border border-white/30 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition i18n" data-ar="شاهد المنتجات" data-en="View products">شاهد المنتجات</a>
-      </div>
-    </div>
-
-    <div class="relative reveal" data-reveal>
-      <div class="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-        <img src="https://images.unsplash.com/photo-1769355104335-acef3aa4c9b6?auto=format&fit=crop&w=1200&q=80"
-             alt="منشأة نظيفة ومنظمة لتخزين وتوريد المنتجات" class="w-full h-72 sm:h-96 object-cover">
-      </div>
-      <div class="absolute -bottom-6 -start-6 card rounded-xl p-4 flex items-center gap-3 max-w-[220px]">
-        <div class="seal shrink-0" style="width:3.2rem;height:3.2rem;">
-          <div class="seal-inner">
-            <span class="font-display font-black text-sm">10%</span>
-          </div>
+    <div class="container">
+        <!-- Logo (Clean DYV without the subtitle/line) -->
+        <div class="logo-container">
+            D<span class="logo-y">Y</span>V
         </div>
-        <div>
-          <p class="font-display font-bold text-sm i18n" data-ar="خصم أول شهرين" data-en="OFF first 2 months">خصم أول شهرين</p>
-          <p class="text-xs text-[var(--muted)] i18n" data-ar="لأصحاب المنشآت الجدد" data-en="For new business accounts">لأصحاب المنشآت الجدد</p>
+
+        <br>
+
+        <!-- Status Tag -->
+        <div class="badge">Coming Soon</div>
+
+        <h1>We'll Be Online Shortly</h1>
+        <p class="description">
+            Our brand-new website is under construction. We are working hard to bring you a seamless online experience.
+        </p>
+
+        <!-- Contact / Mobile Section -->
+        <div class="contact-box">
+            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <!-- Replace +1234567890 with your actual mobile number below -->
+            <a href="tel:+1234567890" class="phone-link">+1 (234) 567-890</a>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--paper)" d="M0,32 C240,60 480,60 720,32 C960,4 1200,4 1440,32 L1440,60 L0,60 Z"></path>
-  </svg>
-</section>
-
-<!-- Trust strip -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-6 pb-16 reveal" data-reveal>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-5" id="trust-grid"></div>
-</section>
-
-<!-- Lead form -->
-<section id="lead-form" class="max-w-2xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
-  <div class="card rounded-2xl overflow-hidden">
-    <div class="bg-[var(--navy)] text-white px-6 py-5">
-      <p class="font-display font-extrabold text-lg i18n" data-ar="سجّل بيانات منشأتك" data-en="Register your business">سجّل بيانات منشأتك</p>
-      <p class="text-xs text-white/70 mt-1 i18n" data-ar="4 أسئلة سريعة، أقل من دقيقة" data-en="4 quick questions, under a minute">4 أسئلة سريعة، أقل من دقيقة</p>
-    </div>
-
-    <div class="px-6 pt-6 flex items-center justify-center gap-2" id="steps-indicator"></div>
-
-    <form id="dyv-form" class="px-6 py-8" onsubmit="return false;">
-      <div class="form-step" data-step="1">
-        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="اسم المنشأة" data-en="Business name">اسم المنشأة</label>
-        <input type="text" id="q1" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition">
-      </div>
-
-      <div class="form-step hidden" data-step="2">
-        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="نوع النشاط" data-en="Business type">نوع النشاط</label>
-        <select id="q2" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition"></select>
-      </div>
-
-      <div class="form-step hidden" data-step="3">
-        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="متوسط الاستهلاك الشهري (تقريبي)" data-en="Average monthly spend (approx.)">متوسط الاستهلاك الشهري (تقريبي)</label>
-        <select id="q3" required class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition"></select>
-      </div>
-
-      <div class="form-step hidden" data-step="4">
-        <label class="block font-display font-bold text-sm mb-2 i18n" data-ar="رقم الواتساب للتواصل" data-en="WhatsApp number">رقم الواتساب للتواصل</label>
-        <input type="tel" id="q4" required placeholder="01xxxxxxxxx" dir="ltr" class="w-full border border-[var(--line)] rounded-lg px-4 py-3 bg-[var(--paper)] focus:bg-white transition font-mono">
-      </div>
-
-      <div class="mt-8 flex items-center justify-between gap-3">
-        <button type="button" id="btn-back" class="px-5 py-3 rounded-lg font-bold text-[var(--muted)] hover:bg-[var(--paper)] transition hidden i18n" data-ar="السابق" data-en="Back">السابق</button>
-        <div class="flex-1"></div>
-        <button type="button" id="btn-next" class="btn-primary px-6 py-3 rounded-lg font-bold i18n" data-ar="التالي" data-en="Next">التالي</button>
-        <button type="button" id="btn-submit" class="btn-whatsapp hidden px-6 py-3 rounded-lg font-bold i18n" data-ar="إرسال عبر واتساب" data-en="Send via WhatsApp">إرسال عبر واتساب</button>
-      </div>
-      <p id="form-error" class="text-[var(--badge)] text-sm mt-3 hidden i18n" data-ar="من فضلك أكمل هذه الخانة قبل المتابعة." data-en="Please fill this field before continuing.">من فضلك أكمل هذه الخانة قبل المتابعة.</p>
-    </form>
-  </div>
-</section>
-
-<!-- Why DYV -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
-  <div class="mb-8">
-    <p class="font-mono text-xs text-[var(--teal-dark)] tracking-widest mb-2 i18n" data-ar="لماذا DYV" data-en="WHY DYV">لماذا DYV</p>
-    <h2 class="font-display font-black text-2xl sm:text-3xl text-[var(--navy)] i18n" data-ar="شريك توريد تقدر تعتمد عليه" data-en="A supply partner you can rely on">شريك توريد تقدر تعتمد عليه</h2>
-  </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="why-grid"></div>
-</section>
-
-<!-- Products -->
-<section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
-  <div class="mb-8">
-    <p class="font-mono text-xs text-[var(--teal-dark)] tracking-widest mb-2 i18n" data-ar="قائمة المنتجات" data-en="PRICE LIST">قائمة المنتجات</p>
-    <h2 class="font-display font-black text-2xl sm:text-3xl text-[var(--navy)] i18n" data-ar="أهم 10 منتجات لدينا" data-en="Our top 10 products">أهم 10 منتجات لدينا</h2>
-    <p class="text-[var(--muted)] mt-2 i18n" data-ar='اضغط "اطلب بسعر الجملة" وسيتم فتح واتساب برسالة جاهزة تحمل كود المنتج.' data-en='Tap "Order at wholesale price" to open WhatsApp with a ready message including the product code.'>اضغط "اطلب بسعر الجملة" وسيتم فتح واتساب برسالة جاهزة تحمل كود المنتج.</p>
-  </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="product-grid"></div>
-</section>
-
-<!-- How it works -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20 reveal" data-reveal>
-  <div class="mb-8">
-    <p class="font-mono text-xs text-[var(--teal-dark)] tracking-widest mb-2 i18n" data-ar="خطوات الطلب" data-en="ORDER PROCESS">خطوات الطلب</p>
-    <h2 class="font-display font-black text-2xl sm:text-3xl text-[var(--navy)] i18n" data-ar="طلب بسيط في 3 خطوات" data-en="A simple 3-step order">طلب بسيط في 3 خطوات</h2>
-  </div>
-  <div class="grid sm:grid-cols-3 gap-5" id="steps-grid"></div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-[var(--navy)] text-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-3 gap-10">
-    <div>
-      <div class="flex items-center gap-2 mb-3">
-        <div class="w-10 h-10 rounded-lg bg-white text-[var(--navy)] flex items-center justify-center font-display font-black">DYV</div>
-        <p class="font-display font-extrabold i18n" data-ar="DYV للتوريدات" data-en="DYV Supplies">DYV للتوريدات</p>
-      </div>
-      <p class="text-white/70 text-sm leading-relaxed max-w-xs i18n" data-ar="توريد مناديل ورقية ومنظفات ومطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد." data-en="Wholesale tissue and cleaning supplies for restaurants, cafés, and companies across 6th of October and Sheikh Zayed.">توريد مناديل ورقية ومنظفات ومطهرات بالجملة للمطاعم والكافيهات والشركات في 6 أكتوبر والشيخ زايد.</p>
-    </div>
-
-    <div>
-      <p class="font-display font-bold mb-3 i18n" data-ar="تواصل معنا" data-en="Contact us">تواصل معنا</p>
-      <a href="tel:+201037689999" class="flex items-center gap-2 font-mono text-sm mb-3 hover:text-[var(--teal)] transition w-fit" dir="ltr">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8.5 6.5 15 15 15l2-4-5-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-5-4 1Z"/></svg>
-        010 3768 9999
-      </a>
-      <a href="https://wa.me/201037689999" target="_blank" rel="noopener"
-         class="btn-whatsapp inline-flex items-center gap-2 font-bold text-sm px-4 py-2.5 rounded-full">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Z"/></svg>
-        <span class="i18n" data-ar="راسلنا على واتساب" data-en="Message us on WhatsApp">راسلنا على واتساب</span>
-      </a>
-    </div>
-
-    <div>
-      <p class="font-display font-bold mb-3 i18n" data-ar="الدفع" data-en="Payment">الدفع</p>
-      <div class="bg-white rounded-xl p-4 w-fit">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=InstaPay%3A%2001037689999%20-%20DYV%20Supplies"
-             alt="InstaPay QR — DYV" width="140" height="140" class="rounded">
-      </div>
-      <p class="text-white/70 text-xs mt-3 max-w-xs leading-relaxed i18n" data-ar="ادفع بسهولة عبر InstaPay بمسح الكود، أو اختر الدفع نقداً عند الاستلام." data-en="Pay easily via InstaPay by scanning the code, or choose cash on delivery.">ادفع بسهولة عبر InstaPay بمسح الكود، أو اختر الدفع نقداً عند الاستلام.</p>
-    </div>
-  </div>
-  <div class="border-t border-white/10 py-5 text-center text-white/50 text-xs">
-    © <span id="year"></span> <span class="i18n" data-ar="DYV Supplies — جميع الحقوق محفوظة" data-en="DYV Supplies — All rights reserved">DYV Supplies — جميع الحقوق محفوظة</span>
-  </div>
-</footer>
-
-<!-- Sticky mobile WhatsApp -->
-<a href="https://wa.me/201037689999" target="_blank" rel="noopener"
-   class="btn-whatsapp sm:hidden fixed bottom-4 end-4 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.17-1.23-6.14-3.42-8.4Zm-8.44 18.2h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.8 1 1.01-3.7-.23-.38a9.86 9.86 0 0 1-1.5-5.19c0-5.44 4.43-9.87 9.9-9.87 2.64 0 5.13 1.03 6.99 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.44-4.43 9.87-9.88 9.87Z"/></svg>
-</a>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* Reveal on scroll */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:0.12});
-revealEls.forEach(el=>io.observe(el));
-
-let LANG = 'ar';
-const WA_NUMBER = "201037689999";
-
-function applyStaticI18n(){
-  document.querySelectorAll('.i18n').forEach(el=>{
-    const val = el.dataset[LANG];
-    if(val !== undefined) el.textContent = val;
-  });
-  document.documentElement.setAttribute('lang', LANG);
-  document.documentElement.setAttribute('dir', LANG === 'ar' ? 'rtl' : 'ltr');
-  document.querySelectorAll('.lang-pill button').forEach(b=>{
-    b.classList.toggle('active', b.dataset.lang === LANG);
-  });
-}
-document.querySelectorAll('.lang-pill button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    LANG = btn.dataset.lang;
-    applyStaticI18n();
-    renderSelects(); renderTrust(); renderWhy(); renderProducts(); renderSteps();
-    showStep(current);
-  });
-});
-
-/* Trust + Why DYV */
-const trustItems = [
-  { icon:'truck', ar:'توصيل سريع', en:'Fast delivery', ar_d:'مواعيد تسليم منتظمة لمنطقتك', en_d:'Reliable delivery schedules in your area' },
-  { icon:'tag', ar:'أسعار جملة مباشرة', en:'Direct wholesale pricing', ar_d:'بدون وسطاء، سعر جملة حقيقي', en_d:'No middlemen, real wholesale rates' },
-  { icon:'chat', ar:'طلب مباشر واتساب', en:'Order via WhatsApp', ar_d:'تواصل مباشر بدون تعقيد', en_d:'Direct contact, no hassle' },
-  { icon:'shield', ar:'جودة ثابتة', en:'Consistent quality', ar_d:'نفس المواصفات في كل طلبية', en_d:'Same specs, every single order' },
-];
-const iconSvg = {
-  truck: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3z"/><path d="M14 11h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>`,
-  tag: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3h6v6L9 18l-6-6L12 3Z"/><circle cx="15" cy="6" r="1.2"/></svg>`,
-  chat: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5Z"/></svg>`,
-  shield: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>`,
-};
-function renderTrust(){
-  const wrap = document.getElementById('trust-grid');
-  wrap.innerHTML = "";
-  trustItems.forEach(t=>{
-    const div = document.createElement('div');
-    div.className = "card rounded-xl p-4 flex flex-col gap-2";
-    div.innerHTML = `
-      <div class="w-9 h-9 rounded-lg bg-[var(--paper)] text-[var(--teal-dark)] flex items-center justify-center">${iconSvg[t.icon]}</div>
-      <p class="font-display font-bold text-sm text-[var(--navy)]">${LANG==='ar'?t.ar:t.en}</p>
-      <p class="text-xs text-[var(--muted)]">${LANG==='ar'?t.ar_d:t.en_d}</p>`;
-    wrap.appendChild(div);
-  });
-}
-function renderWhy(){
-  const wrap = document.getElementById('why-grid');
-  wrap.innerHTML = "";
-  trustItems.forEach(t=>{
-    const div = document.createElement('div');
-    div.className = "card rounded-xl p-5 flex flex-col gap-3";
-    div.innerHTML = `
-      <div class="w-10 h-10 rounded-lg bg-[var(--paper)] text-[var(--teal-dark)] flex items-center justify-center">${iconSvg[t.icon]}</div>
-      <p class="font-display font-bold text-base text-[var(--navy)]">${LANG==='ar'?t.ar:t.en}</p>
-      <p class="text-sm text-[var(--muted)]">${LANG==='ar'?t.ar_d:t.en_d}</p>`;
-    wrap.appendChild(div);
-  });
-}
-
-/* How it works */
-const orderSteps = [
-  { ar:'راسلنا على واتساب', en:'Message us on WhatsApp', ar_d:'ابعتلنا اسم المنتج والكمية المطلوبة', en_d:'Send us the product name and quantity you need' },
-  { ar:'نأكد السعر والكمية', en:'We confirm price & quantity', ar_d:'هنرد بسعر الجملة وميعاد التسليم', en_d:"We'll reply with the wholesale price and delivery time" },
-  { ar:'التسليم والدفع', en:'Delivery & payment', ar_d:'استلم طلبك وادفع InstaPay أو نقداً', en_d:'Receive your order, pay via InstaPay or cash' },
-];
-function renderSteps(){
-  const wrap = document.getElementById('steps-grid');
-  wrap.innerHTML = "";
-  orderSteps.forEach((s,i)=>{
-    const div = document.createElement('div');
-    div.className = "card rounded-xl p-6 relative";
-    div.innerHTML = `
-      <span class="font-mono text-xs text-white bg-[var(--navy)] rounded-full w-7 h-7 flex items-center justify-center mb-4">${i+1}</span>
-      <p class="font-display font-bold text-base mb-2 text-[var(--navy)]">${LANG==='ar'?s.ar:s.en}</p>
-      <p class="text-sm text-[var(--muted)]">${LANG==='ar'?s.ar_d:s.en_d}</p>`;
-    wrap.appendChild(div);
-  });
-}
-
-/* Products */
-const products = [
-  {code:"DYV-PT-01", img:"https://images.unsplash.com/photo-1580428456190-7348f304b927?auto=format&fit=crop&w=600&q=80", ar:"مناديل سفرة (كوتشينة)", en:"Table napkins", ar_d:"مناديل ناعمة متعددة الاستخدام للطاولات.", en_d:"Soft multi-use napkins for restaurant tables."},
-  {code:"DYV-PT-02", img:"https://images.unsplash.com/photo-1660368867072-f77a06ba9ad6?auto=format&fit=crop&w=600&q=80", ar:"رول مطبخ (تنشيف)", en:"Kitchen towel roll", ar_d:"امتصاص عالي للمطابخ التجارية.", en_d:"High absorbency for commercial kitchens."},
-  {code:"DYV-PT-03", img:"https://images.unsplash.com/photo-1584556812952-905ffd0c611a?auto=format&fit=crop&w=600&q=80", ar:"رول مناديل تواليت", en:"Toilet paper roll", ar_d:"اقتصادي ومناسب للحمامات العامة.", en_d:"Economical, suited for public restrooms."},
-  {code:"DYV-PT-04", img:"https://images.unsplash.com/photo-1609840112990-4265448268d1?auto=format&fit=crop&w=600&q=80", ar:"فوط تجفيف أيدي", en:"Hand towel tissue", ar_d:"تيشو تجفيف أيدي للمطاعم والمكاتب.", en_d:"Hand-drying tissue for restaurants and offices."},
-  {code:"DYV-CL-01", img:"https://images.unsplash.com/photo-1662460167784-04bfea3939eb?auto=format&fit=crop&w=600&q=80", ar:"سائل غسيل أطباق", en:"Dish washing liquid", ar_d:"تركيز عالي يزيل الدهون بسرعة.", en_d:"High concentration, cuts through grease fast."},
-  {code:"DYV-CL-02", img:"https://images.unsplash.com/photo-1576503276236-71dd8ad5b0b9?auto=format&fit=crop&w=600&q=80", ar:"مطهر أرضيات", en:"Floor disinfectant", ar_d:"رائحة مركزة تدوم طويلاً.", en_d:"Concentrated scent that lasts."},
-  {code:"DYV-CL-03", img:"https://images.unsplash.com/photo-1550963295-019d8a8a61c5?auto=format&fit=crop&w=600&q=80", ar:"معقم أسطح", en:"Surface disinfectant", ar_d:"يقضي على 99.9% من الجراثيم.", en_d:"Kills 99.9% of germs."},
-  {code:"DYV-CL-04", img:"https://images.unsplash.com/photo-1675113015601-84528beaa932?auto=format&fit=crop&w=600&q=80", ar:"صابون سائل لليدين", en:"Liquid hand soap", ar_d:"تركيبة لطيفة ومناسبة للاستخدام المتكرر.", en_d:"Gentle formula for frequent use."},
-  {code:"DYV-PK-01", img:"https://images.unsplash.com/photo-1602262442764-c14f8db98045?auto=format&fit=crop&w=600&q=80", ar:"أكياس نايلون تعبئة", en:"Nylon packing bags", ar_d:"مقاسات متعددة لتغليف الطلبات.", en_d:"Multiple sizes for packing orders."},
-  {code:"DYV-PK-02", img:"https://images.unsplash.com/photo-1769355104335-acef3aa4c9b6?auto=format&fit=crop&w=600&q=80", ar:"رول استرتش تغليف", en:"Stretch wrap roll", ar_d:"لتثبيت وتغليف البضائع والمنتجات.", en_d:"For securing and wrapping goods."},
-];
-function renderProducts(){
-  const grid = document.getElementById('product-grid');
-  grid.innerHTML = "";
-  const orderLabel = LANG==='ar' ? 'اطلب بسعر الجملة' : 'Order at wholesale price';
-  products.forEach(p=>{
-    const name = LANG==='ar' ? p.ar : p.en;
-    const desc = LANG==='ar' ? p.ar_d : p.en_d;
-    const msgText = LANG==='ar'
-      ? `مرحباً، أريد طلب سعر جملة للمنتج: ${p.ar} (كود ${p.code})`
-      : `Hello, I'd like a wholesale quote for: ${p.en} (code ${p.code})`;
-    const card = document.createElement('div');
-    card.className = "card rounded-xl overflow-hidden flex flex-col";
-    card.innerHTML = `
-      <img src="${p.img}" alt="${name}" class="prod-img">
-      <div class="p-5 flex flex-col flex-1">
-        <div class="flex items-start justify-between mb-2">
-          <p class="font-display font-bold text-base text-[var(--navy)]">${name}</p>
-          <span class="font-mono text-[10px] text-[var(--muted)] border border-[var(--line)] rounded px-2 py-1 shrink-0">${p.code}</span>
+        <div class="footer">
+            &copy; 2026 DYV. All rights reserved.
         </div>
-        <p class="text-xs text-[var(--muted)] mb-4 flex-1">${desc}</p>
-        <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msgText)}" target="_blank" rel="noopener"
-           class="btn-primary text-center text-sm font-bold py-2.5 rounded-lg">${orderLabel}</a>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-/* Lead form */
-const bizTypes = [
-  {ar:"اختر نوع النشاط", en:"Select business type", v:""},
-  {ar:"مطعم", en:"Restaurant"},
-  {ar:"كافيه", en:"Café"},
-  {ar:"فندق / شقق فندقية", en:"Hotel / serviced apartments"},
-  {ar:"شركة / مكتب", en:"Company / office"},
-  {ar:"أخرى", en:"Other"},
-];
-const spendRanges = [
-  {ar:"اختر الفئة", en:"Select a range", v:""},
-  {ar:"أقل من 5,000 جنيه", en:"Under EGP 5,000"},
-  {ar:"5,000 - 15,000 جنيه", en:"EGP 5,000 - 15,000"},
-  {ar:"15,000 - 30,000 جنيه", en:"EGP 15,000 - 30,000"},
-  {ar:"أكثر من 30,000 جنيه", en:"Over EGP 30,000"},
-];
-function fillSelect(id, items){
-  const sel = document.getElementById(id);
-  const prevValue = sel.value;
-  sel.innerHTML = "";
-  items.forEach(it=>{
-    const opt = document.createElement('option');
-    opt.value = it.v !== undefined ? it.v : (LANG==='ar'?it.ar:it.en);
-    opt.textContent = LANG==='ar' ? it.ar : it.en;
-    sel.appendChild(opt);
-  });
-  if(prevValue) sel.value = prevValue;
-}
-function renderSelects(){ fillSelect('q2', bizTypes); fillSelect('q3', spendRanges); }
-
-const steps = Array.from(document.querySelectorAll('.form-step'));
-const totalSteps = steps.length;
-let current = 1;
-const indicator = document.getElementById('steps-indicator');
-const answers = {};
-
-function renderIndicator(){
-  indicator.innerHTML = "";
-  for(let i=1;i<=totalSteps;i++){
-    const dot = document.createElement('div');
-    const active = i === current, done = i < current;
-    dot.className = `w-8 h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold border-2 transition ${
-      active ? 'bg-[var(--navy)] text-white border-[var(--navy)]' :
-      done ? 'bg-[var(--teal)] text-white border-[var(--teal)]' :
-      'bg-transparent text-[var(--muted)] border-[var(--line)]'
-    }`;
-    dot.textContent = i;
-    indicator.appendChild(dot);
-    if(i < totalSteps){
-      const line = document.createElement('div');
-      line.className = `w-6 h-0.5 ${i < current ? 'bg-[var(--teal)]' : 'bg-[var(--line)]'}`;
-      indicator.appendChild(line);
-    }
-  }
-}
-function showStep(n){
-  steps.forEach(s => s.classList.toggle('hidden', Number(s.dataset.step) !== n));
-  document.getElementById('btn-back').classList.toggle('hidden', n === 1);
-  document.getElementById('btn-next').classList.toggle('hidden', n === totalSteps);
-  document.getElementById('btn-submit').classList.toggle('hidden', n !== totalSteps);
-  document.getElementById('form-error').classList.add('hidden');
-  renderIndicator();
-}
-function currentInputId(n){ return `q${n}`; }
-function validateStep(n){
-  const el = document.getElementById(currentInputId(n));
-  if(!el.value || el.value.trim() === ""){
-    document.getElementById('form-error').classList.remove('hidden');
-    el.focus();
-    return false;
-  }
-  answers[currentInputId(n)] = el.value.trim();
-  return true;
-}
-document.getElementById('btn-next').addEventListener('click', ()=>{
-  if(!validateStep(current)) return;
-  current = Math.min(current+1, totalSteps);
-  showStep(current);
-});
-document.getElementById('btn-back').addEventListener('click', ()=>{
-  current = Math.max(current-1, 1);
-  showStep(current);
-});
-document.getElementById('btn-submit').addEventListener('click', ()=>{
-  if(!validateStep(current)) return;
-  const msg = LANG === 'ar'
-    ? `طلب تسجيل عرض DYV (خصم 10%)\nاسم المنشأة: ${answers.q1||''}\nنوع النشاط: ${answers.q2||''}\nالاستهلاك الشهري: ${answers.q3||''}\nرقم الواتساب: ${answers.q4||''}`
-    : `DYV offer registration (10% OFF)\nBusiness name: ${answers.q1||''}\nBusiness type: ${answers.q2||''}\nMonthly spend: ${answers.q3||''}\nWhatsApp number: ${answers.q4||''}`;
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-});
-
-/* Init */
-applyStaticI18n();
-renderSelects();
-renderTrust();
-renderWhy();
-renderProducts();
-renderSteps();
-showStep(current);
-</script>
+    </div>
 
 </body>
 </html>
