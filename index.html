@@ -45,6 +45,11 @@
             background-image: radial-gradient(rgba(0, 242, 254, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
         }
+        .cover-bg {
+            background: linear-gradient(to bottom, rgba(8, 12, 20, 0.7), rgba(8, 12, 20, 0.95)), url('DYV Cover page.png');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="bg-grid antialiased selection:bg-neoncyan selection:text-black">
@@ -52,8 +57,8 @@
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#080c14]/80 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/40 flex items-center justify-center glow-box">
-                    <span class="text-neoncyan font-bold text-lg">DYV</span>
+                <div class="w-12 h-10 rounded-xl overflow-hidden border border-cyan-500/40 glow-box flex items-center justify-center bg-black">
+                    <img src="DYV AI Logo.jpg" alt="DYV AI Logo" class="w-full h-full object-cover">
                 </div>
                 <span class="font-bold text-xl tracking-wider text-white">DYV <span class="text-neoncyan">AI</span></span>
             </div>
@@ -72,17 +77,16 @@
         </div>
     </header>
 
-    <section class="relative pt-20 pb-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent pointer-events-none"></div>
+    <section class="relative pt-24 pb-36 overflow-hidden cover-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-neoncyan text-xs font-semibold uppercase tracking-widest mb-6">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-neoncyan text-xs font-semibold uppercase tracking-widest mb-6 glow-box">
                 <i class="fa-solid fa-microchip"></i>
                 <span>Next-Gen Artificial Intelligence & Digital Solutions</span>
             </div>
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
                 Shaping the Future with <span class="text-neoncyan glow-text">Intelligent Tech</span>
             </h1>
-            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-400 mb-10">
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10">
                 DYV AI pioneers advanced mobile applications and digital ecosystems powered by machine learning, engineered to simplify and elevate everyday life.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -90,9 +94,9 @@
                     <span>Explore Our Apps</span>
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
-                <a href="https://wa.me/971503764555" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-3.5 rounded-xl border border-gray-700 transition">
+                <a href="https://wa.me/971503764555" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900/80 hover:bg-gray-800 text-white font-semibold px-8 py-3.5 rounded-xl border border-gray-700 transition backdrop-blur-sm">
                     <i class="fa-brands fa-whatsapp text-neongreen text-xl"></i>
-                    <span>Connect with Us</span>
+                    <span>Connect on WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -109,7 +113,7 @@
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative">
                         <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur opacity-30"></div>
-                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border border-cyan-500/40 bg-gray-900 shadow-2xl flex items-center justify-center p-4">
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border border-cyan-500/40 bg-gray-900 shadow-2xl flex items-center justify-center p-2">
                             <img src="icon.png" alt="Baby Cry Translator Icon" class="w-full h-full object-cover rounded-2xl">
                         </div>
                     </div>
