@@ -1,234 +1,257 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DYV AI — Artificial Intelligence & Digital Solutions</title>
-    <meta name="description" content="Innovative AI-driven mobile applications and digital solutions designed for modern families and smart ecosystems.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        darkbg: '#080c14',
-                        cardbg: '#111827',
-                        neoncyan: '#00f2fe',
-                        neongreen: '#25D366',
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #080c14;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-        .glow-text {
-            text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
-        }
-        .glow-box {
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-        }
-        .glow-box:hover {
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.3);
-            border-color: rgba(0, 242, 254, 0.6);
-        }
-        .bg-grid {
-            background-image: radial-gradient(rgba(0, 242, 254, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-        .cover-bg {
-            background: linear-gradient(to bottom, rgba(8, 12, 20, 0.7), rgba(8, 12, 20, 0.95)), url('DYV Cover page.png');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DYV AI — Baby Cry Translator & White Noise App</title>
+<meta name="description" content="DYV AI decodes your baby's cries using AI audio analysis and pairs it with soothing white noise soundboards — a smarter way for parents to understand and settle their little ones.">
+<meta name="keywords" content="baby cry translator, white noise app, AI parenting app, baby sleep app, infant cry analysis">
+<link rel="canonical" href="https://www.getdyv.com/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DYV AI — Baby Cry Translator & White Noise App">
+<meta property="og:description" content="AI-powered cry analysis and soothing white noise to help parents understand and settle their baby faster.">
+<meta property="og:image" content="https://www.getdyv.com/DYV%20Cover%20page.png">
+<meta property="og:url" content="https://www.getdyv.com/">
+<meta property="og:site_name" content="DYV AI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DYV AI — Baby Cry Translator & White Noise App">
+<meta name="twitter:description" content="AI-powered cry analysis and soothing white noise to help parents understand and settle their baby faster.">
+<meta name="twitter:image" content="https://www.getdyv.com/DYV%20Cover%20page.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+darkMode: 'class',
+theme: {
+extend: {
+colors: {
+darkbg: '#080c14',
+cardbg: '#111827',
+neoncyan: '#00f2fe',
+neongreen: '#25D366',
+}
+}
+}
+}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #080c14;
+color: #f3f4f6;
+overflow-x: hidden;
+}
+.glow-text {
+text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+}
+.glow-box {
+box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+border: 1px solid rgba(0, 242, 254, 0.3);
+}
+.glow-box:hover {
+box-shadow: 0 0 35px rgba(0, 242, 254, 0.3);
+border-color: rgba(0, 242, 254, 0.6);
+}
+.bg-grid {
+background-image: radial-gradient(rgba(0, 242, 254, 0.1) 1px, transparent 1px);
+background-size: 30px 30px;
+}
+.cover-bg {
+background: linear-gradient(to bottom, rgba(8, 12, 20, 0.7), rgba(8, 12, 20, 0.95)), url('DYV Cover page.png');
+background-size: cover;
+background-position: center;
+}
+.store-badge {
+opacity: 0.55;
+cursor: default;
+}
+</style>
 </head>
 <body class="bg-grid antialiased selection:bg-neoncyan selection:text-black">
 
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#080c14]/80 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-10 rounded-xl overflow-hidden border border-cyan-500/40 glow-box flex items-center justify-center bg-black">
-                    <img src="DYV AI Logo.jpg" alt="DYV AI Logo" class="w-full h-full object-cover">
-                </div>
-                <span class="font-bold text-xl tracking-wider text-white">DYV <span class="text-neoncyan">AI</span></span>
-            </div>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="#about" class="hover:text-neoncyan transition">About</a>
-                <a href="#products" class="hover:text-neoncyan transition">Products</a>
-                <a href="#features" class="hover:text-neoncyan transition">Features</a>
-                <a href="#contact" class="hover:text-neoncyan transition">Contact</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <a href="https://wa.me/971503766455" target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-neongreen/10 hover:bg-neongreen/20 text-neongreen border border-neongreen/30 px-4 py-2 rounded-full text-sm font-medium transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Chat on WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </header>
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[#080c14]/80 border-b border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-12 h-10 rounded-xl overflow-hidden border border-cyan-500/40 glow-box flex items-center justify-center bg-black">
+<img src="DYV AI Logo.jpg" alt="DYV AI Logo" class="w-full h-full object-cover">
+</div>
+<span class="font-bold text-xl tracking-wider text-white">DYV <span class="text-neoncyan">AI</span></span>
+</div>
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+<a href="#about" class="hover:text-neoncyan transition">About</a>
+<a href="#products" class="hover:text-neoncyan transition">Products</a>
+<a href="#features" class="hover:text-neoncyan transition">Features</a>
+<a href="#contact" class="hover:text-neoncyan transition">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<a href="https://wa.me/971503766455" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center space-x-2 bg-neongreen/10 hover:bg-neongreen/20 text-neongreen border border-neongreen/30 px-4 py-2 rounded-full text-sm font-medium transition">
+<i class="fa-brands fa-whatsapp text-lg"></i>
+<span>Chat on WhatsApp</span>
+</a>
+</div>
+</div>
+</header>
 
-    <section class="relative pt-24 pb-36 overflow-hidden cover-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-neoncyan text-xs font-semibold uppercase tracking-widest mb-6 glow-box">
-                <i class="fa-solid fa-microchip"></i>
-                <span>Next-Gen Artificial Intelligence & Digital Solutions</span>
-            </div>
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
-                Shaping the Future with <span class="text-neoncyan glow-text">Intelligent Tech</span>
-            </h1>
-            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10">
-                DYV AI pioneers advanced mobile applications and digital ecosystems powered by machine learning, engineered to simplify and elevate everyday life.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-neoncyan text-black font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:bg-cyan-400 transition">
-                    <span>Explore Our Apps</span>
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
-                <a href="https://wa.me/971503766455" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900/80 hover:bg-gray-800 text-white font-semibold px-8 py-3.5 rounded-xl border border-gray-700 transition backdrop-blur-sm">
-                    <i class="fa-brands fa-whatsapp text-neongreen text-xl"></i>
-                    <span>Connect on WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </section>
+<section class="relative pt-24 pb-36 overflow-hidden cover-bg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-neoncyan text-xs font-semibold uppercase tracking-widest mb-6 glow-box">
+<i class="fa-solid fa-microchip"></i>
+<span>Next-Gen Artificial Intelligence & Digital Solutions</span>
+</div>
+<h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+Shaping the Future with <span class="text-neoncyan glow-text">Intelligent Tech</span>
+</h1>
+<p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10">
+DYV AI pioneers advanced mobile applications and digital ecosystems powered by machine learning, engineered to simplify and elevate everyday life.
+</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-neoncyan text-black font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:bg-cyan-400 transition">
+<span>Explore Our Apps</span>
+<i class="fa-solid fa-arrow-down"></i>
+</a>
+<a href="https://wa.me/971503766455" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gray-900/80 hover:bg-gray-800 text-white font-semibold px-8 py-3.5 rounded-xl border border-gray-700 transition backdrop-blur-sm">
+<i class="fa-brands fa-whatsapp text-neongreen text-xl"></i>
+<span>Connect on WhatsApp</span>
+</a>
+</div>
+</div>
+</section>
 
-    <section id="products" class="py-24 bg-[#05080f] border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Flagship Innovation</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Discover our pioneering application designed to empower parents through advanced audio intelligence.</p>
-            </div>
+<section id="products" class="py-24 bg-[#05080f] border-t border-gray-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Flagship Innovation</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">Discover our pioneering application designed to empower parents through advanced audio intelligence.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-cardbg rounded-3xl p-8 sm:p-12 glow-box">
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative">
+<div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur opacity-30"></div>
+<div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border border-cyan-500/40 bg-gray-900 shadow-2xl flex items-center justify-center p-2">
+<img src="icon.png" alt="Baby Cry Translator Icon" class="w-full h-full object-cover rounded-2xl">
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase">
+<span>Flagship Mobile App</span>
+</div>
+<h3 class="text-2xl sm:text-4xl font-bold text-white">Baby Cry Translator & White Noise</h3>
+<p class="text-gray-300 leading-relaxed">
+An intelligent parenting companion that decodes infant cries using AI audio analysis, helping parents instantly understand needs like hunger, discomfort, or fatigue. Combined with custom soothing white noise soundboards for seamless sleep training.
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="flex items-start space-x-3">
+<div class="mt-1 w-6 h-6 rounded-full bg-cyan-500/20 text-neoncyan flex items-center justify-center text-xs">
+<i class="fa-solid fa-check"></i>
+</div>
+<div>
+<h4 class="text-white font-medium text-sm">AI Cry Analysis</h4>
+<p class="text-gray-400 text-xs">Accurate emotional & physical need detection.</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="mt-1 w-6 h-6 rounded-full bg-cyan-500/20 text-neoncyan flex items-center justify-center text-xs">
+<i class="fa-solid fa-check"></i>
+</div>
+<div>
+<h4 class="text-white font-medium text-sm">Soothing Audio Soundboards</h4>
+<p class="text-gray-400 text-xs">Curated white noise frequencies for calm sleep.</p>
+</div>
+</div>
+</div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-cardbg rounded-3xl p-8 sm:p-12 glow-box">
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur opacity-30"></div>
-                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border border-cyan-500/40 bg-gray-900 shadow-2xl flex items-center justify-center p-2">
-                            <img src="icon.png" alt="Baby Cry Translator Icon" class="w-full h-full object-cover rounded-2xl">
-                        </div>
-                    </div>
-                </div>
+<!-- Store CTAs -->
+<div class="pt-4 flex flex-wrap gap-4">
+<span class="store-badge inline-flex items-center space-x-2 bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-xs font-medium border border-gray-700" title="Coming soon">
+<i class="fa-brands fa-android text-green-400 text-base"></i>
+<span>Android — Coming Soon</span>
+</span>
+<span class="store-badge inline-flex items-center space-x-2 bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-xs font-medium border border-gray-700" title="Coming soon">
+<i class="fa-brands fa-apple text-white text-base"></i>
+<span>iOS — Coming Soon</span>
+</span>
+</div>
+<p class="text-xs text-gray-500 pt-1">
+<i class="fa-solid fa-bell text-neoncyan mr-1"></i>
+Want to be first to know when we launch? <a href="https://wa.me/971503766455" target="_blank" rel="noopener" class="text-neoncyan hover:underline">Message us on WhatsApp</a>.
+</p>
+</div>
+</div>
+</div>
+</section>
 
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase">
-                        <span>Flagship Mobile App</span>
-                    </div>
-                    <h3 class="text-2xl sm:text-4xl font-bold text-white">Baby Cry Translator & White Noise</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        An intelligent parenting companion that decodes infant cries using AI audio analysis, helping parents instantly understand needs like hunger, discomfort, or fatigue. Combined with custom soothing white noise soundboards for seamless sleep training.
-                    </p>
+<section id="features" class="py-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why Choose DYV AI</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">We combine state-of-the-art machine learning with intuitive digital design.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
+<div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
+<i class="fa-solid fa-brain"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Advanced AI Models</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Leveraging custom-trained algorithms and neural networks to deliver real-time diagnostic and analytical utility.</p>
+</div>
+<div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
+<div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
+<i class="fa-solid fa-mobile-screen-button"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Seamless Mobile UX</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Built with high-performance frameworks ensuring fluid navigation, responsiveness, and aesthetic excellence.</p>
+</div>
+<div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
+<div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Secure & Private</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Prioritizing user privacy with end-to-end data encryption and strict compliance standards across all digital platforms.</p>
+</div>
+</div>
+</div>
+</section>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 w-6 h-6 rounded-full bg-cyan-500/20 text-neoncyan flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm">AI Cry Analysis</h4>
-                                <p class="text-gray-400 text-xs">Accurate emotional & physical need detection.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="mt-1 w-6 h-6 rounded-full bg-cyan-500/20 text-neoncyan flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm">Soothing Audio Soundboards</h4>
-                                <p class="text-gray-400 text-xs">Curated white noise frequencies for calm sleep.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 flex flex-wrap gap-4">
-                        <span class="inline-flex items-center space-x-2 bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-xs font-medium border border-gray-700">
-                            <i class="fa-brands fa-android text-green-400 text-base"></i>
-                            <span>Android App</span>
-                        </span>
-                        <span class="inline-flex items-center space-x-2 bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-xs font-medium border border-gray-700">
-                            <i class="fa-brands fa-apple text-white text-base"></i>
-                            <span>iOS App</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why Choose DYV AI</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">We combine state-of-the-art machine learning with intuitive digital design.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Advanced AI Models</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Leveraging custom-trained algorithms and neural networks to deliver real-time diagnostic and analytical utility.</p>
-                </div>
-
-                <div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Seamless Mobile UX</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Built with high-performance frameworks ensuring fluid navigation, responsiveness, and aesthetic excellence.</p>
-                </div>
-
-                <div class="bg-cardbg p-8 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neoncyan mb-6 text-xl">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Secure & Private</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Prioritizing user privacy with end-to-end data encryption and strict compliance standards across all digital platforms.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-[#05080f] border-t border-gray-800 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Let's Build the Future Together</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Inquiries, partnerships, or digital solutions support? Reach out to our team directly through our official channels.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4 justify-start md:justify-end">
-                    <a href="https://wa.me/971503766455" target="_blank" class="inline-flex items-center justify-center space-x-3 bg-neongreen hover:bg-emerald-600 text-black font-semibold px-6 py-3.5 rounded-xl transition shadow-lg">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>+971 50 3766 455</span>
-                    </a>
-                    <a href="https://www.getdyv.com" class="inline-flex items-center justify-center space-x-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3.5 rounded-xl border border-gray-700 transition">
-                        <i class="fa-solid fa-globe text-neoncyan text-lg"></i>
-                        <span>www.getdyv.com</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-                <p>&copy; 2026 DYV AI — Artificial Intelligence & Digital Solutions. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 sm:mt-0">
-                    <a href="#" class="hover:text-neoncyan transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-neoncyan transition">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<footer id="contact" class="bg-[#05080f] border-t border-gray-800 pt-16 pb-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+<div>
+<h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Let's Build the Future Together</h2>
+<p class="text-gray-400 text-sm leading-relaxed">
+Inquiries, partnerships, or digital solutions support? Reach out to our team directly through our official channels.
+</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-start md:justify-end">
+<a href="https://wa.me/971503766455" target="_blank" rel="noopener" class="inline-flex items-center justify-center space-x-3 bg-neongreen hover:bg-emerald-600 text-black font-semibold px-6 py-3.5 rounded-xl transition shadow-lg">
+<i class="fa-brands fa-whatsapp text-xl"></i>
+<span>+971 50 3766 455</span>
+</a>
+<a href="https://www.getdyv.com" class="inline-flex items-center justify-center space-x-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3.5 rounded-xl border border-gray-700 transition">
+<i class="fa-solid fa-globe text-neoncyan text-lg"></i>
+<span>www.getdyv.com</span>
+</a>
+</div>
+</div>
+<div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+<p>&copy; 2026 DYV AI — Artificial Intelligence & Digital Solutions. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 sm:mt-0">
+<a href="privacy.html" class="hover:text-neoncyan transition">Privacy Policy</a>
+<a href="#" class="hover:text-neoncyan transition">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
 
 </body>
 </html>
